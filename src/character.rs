@@ -1,23 +1,23 @@
 use std::collections::HashSet;
 
-struct Abilities{
-    str: u8,
-    dex: u8,
-    con: u8,
-    int: u8,
-    wis: u8,
-    cha: u8,
+pub struct Abilities{
+    pub str: u8,
+    pub dex: u8,
+    pub con: u8,
+    pub int: u8,
+    pub wis: u8,
+    pub cha: u8,
 
 }
-struct Modifiers{
-    str: u8,
-    dex: u8,
-    con: u8,
-    int: u8,
-    wis: u8,
-    cha: u8,
+pub struct Modifiers{
+    pub str: u8,
+    pub dex: u8,
+    pub con: u8,
+    pub int: u8,
+    pub wis: u8,
+    pub cha: u8,
 }
-enum Skills{
+pub enum Skills{
     //DEX
     Acrobatics,
     SleitOfHand,
@@ -43,26 +43,26 @@ enum Skills{
     Persuasion,
 }
 
-struct DeathSaves {
-    success: u8,
-    failure: u8,
+pub struct DeathSaves {
+    pub success: u8,
+    pub failure: u8,
 }
 
-struct Character {
-    name: String,
-    race: String,
-    class: String,
-    xp: u32,
-    lvl: u8,
+pub struct Character {
+    pub name: String,
+    pub race: String,
+    pub class: String,
+    pub xp: u32,
+    pub lvl: u8,
 
-    abilities: Abilities,
+    pub abilities: Abilities,
 
-    hp_max: u8,
-    hp_now: u8,
+    pub hp_max: u8,
+    pub hp_now: u8,
 
-    death_saves: DeathSaves,
+    pub death_saves: DeathSaves,
 
-    skills: HashSet<Skills>,
+    pub skills: HashSet<Skills>,
 }
 
 impl Character {
@@ -80,5 +80,5 @@ impl Character {
     fn ProficiencyBonus(&self) -> u8 {
         &self.lvl/4+1
     }
-    
+
 }

@@ -1,3 +1,5 @@
+use crate::character::Character;
+
 struct Item {
     name: String,
     cost: u16,
@@ -9,11 +11,11 @@ struct Item {
 struct Armor {
     item: Item,
     defaultAC: u8,
-    plusDEX
+    plusDEX: bool,
 
 }
 impl Armor {
-    fn GetArmorClass(&self) {
-
+    fn GetArmorClass(&self) -> u8{
+        self.item.owner.abilities.dex * (self.plusDEX as u8) + self.defaultAC
     }
 }
