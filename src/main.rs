@@ -8,17 +8,18 @@ fn main() {
 }
 
 fn SetArmor() {
-    let json = fs::read_to_string("data/armor.json").unwrap();
-    let mut armors: Vec<items::Armor> = serde_json::from_str(&json).unwrap();
     loop{
+        let json = fs::read_to_string("data/armor.json").unwrap();
+        let mut armors: Vec<items::Armor> = serde_json::from_str(&json).unwrap();
         let new_armor = match AddArmor() {
             Some(v) => v,
             None => break,
         };
         armors.push(new_armor);
+        let new_json = serde_json::to_string_pretty(&armors).unwrap();
+        fs::write("data/armor.json", new_json).unwrap();
     }
-    let new_json = serde_json::to_string_pretty(&armors).unwrap();
-    fs::write("data/armor.json", new_json).unwrap();
+    
 }
 fn AddArmor() -> Option<items::Armor>{
     let mut input = String::new();

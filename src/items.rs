@@ -8,7 +8,7 @@ use crate::character::Character;
 #[derive(Serialize, Deserialize)]
 pub struct Item {
     pub name: String,
-    pub cost: u16,
+    pub cost: u32,
     pub weight: u8,
 
 }
