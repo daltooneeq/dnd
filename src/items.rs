@@ -1,7 +1,6 @@
 use std::fs::read_to_string;
 
 use serde::{Serialize, Deserialize};
-use serde_json::{to_string, from_str};
 
 use crate::character::Character;
 
@@ -16,19 +15,19 @@ pub struct Item {
 #[derive(Serialize, Deserialize)]
 pub struct Armor {
     pub item: Item,
-    pub defaultAC: u8,
-    pub plusDEX: bool,
-    pub strangeNeed: Option<u8>,
+    pub default_AC: u8,
+    pub plus_DEX: bool,
+    pub strange_need: Option<u8>,
 }
 impl Armor {
-    fn GetArmorClass(&self, owner: &Character) -> u8{
-        owner.Modifiers().dex * (self.plusDEX as u8) + self.defaultAC
+    fn get_armor_class(&self, owner: &Character) -> u8{
+        owner.modifiers().dex * (self.plus_DEX as u8) + self.default_AC
     }
 }
 
 const ARMOR_JSON: &str = include_str!("../data/armor.json");
 
-pub fn GetArmor() -> Vec<Armor>{
+pub fn get_armor() -> Vec<Armor>{
     let json = read_to_string(ARMOR_JSON).unwrap();
     serde_json::from_str(&json).unwrap()
 }

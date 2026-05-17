@@ -65,7 +65,7 @@ pub struct Character {
 }
 
 impl Character {
-    pub fn Modifiers(&self) -> Modifiers{
+    pub fn modifiers(&self) -> Modifiers{
         let abilities = &self.abilities;
         Modifiers {
             str: (abilities.str-10)/2,
@@ -76,7 +76,7 @@ impl Character {
             cha: (abilities.cha-10)/2,
         }
     }
-    pub fn ProficiencyBonus(&self) -> u8 {
+    pub fn proficiency_bonus(&self) -> u8 {
         &self.lvl/4+1
     }    
 }

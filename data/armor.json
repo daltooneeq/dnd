@@ -5,9 +5,9 @@
       "cost": 500,
       "weight": 8
     },
-    "defaultAC": 11,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 11,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -15,9 +15,9 @@
       "cost": 1000,
       "weight": 10
     },
-    "defaultAC": 11,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 11,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -25,9 +25,9 @@
       "cost": 4500,
       "weight": 13
     },
-    "defaultAC": 12,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 12,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -35,9 +35,9 @@
       "cost": 1000,
       "weight": 12
     },
-    "defaultAC": 12,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 12,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -45,9 +45,9 @@
       "cost": 5000,
       "weight": 20
     },
-    "defaultAC": 13,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 13,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -55,9 +55,9 @@
       "cost": 5000,
       "weight": 45
     },
-    "defaultAC": 14,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 14,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -65,9 +65,9 @@
       "cost": 40000,
       "weight": 20
     },
-    "defaultAC": 14,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 14,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -75,9 +75,9 @@
       "cost": 75000,
       "weight": 40
     },
-    "defaultAC": 15,
-    "plusDEX": true,
-    "strangeNeed": null
+    "default_AC": 15,
+    "plus_DEX": true,
+    "strange_need": null
   },
   {
     "item": {
@@ -85,9 +85,9 @@
       "cost": 3000,
       "weight": 40
     },
-    "defaultAC": 14,
-    "plusDEX": false,
-    "strangeNeed": null
+    "default_AC": 14,
+    "plus_DEX": false,
+    "strange_need": null
   },
   {
     "item": {
@@ -95,9 +95,9 @@
       "cost": 7500,
       "weight": 55
     },
-    "defaultAC": 16,
-    "plusDEX": false,
-    "strangeNeed": 13
+    "default_AC": 16,
+    "plus_DEX": false,
+    "strange_need": 13
   },
   {
     "item": {
@@ -105,9 +105,9 @@
       "cost": 20000,
       "weight": 60
     },
-    "defaultAC": 17,
-    "plusDEX": false,
-    "strangeNeed": 15
+    "default_AC": 17,
+    "plus_DEX": false,
+    "strange_need": 15
   },
   {
     "item": {
@@ -115,8 +115,8 @@
       "cost": 150000,
       "weight": 65
     },
-    "defaultAC": 18,
-    "plusDEX": false,
-    "strangeNeed": 15
+    "default_AC": 18,
+    "plus_DEX": false,
+    "strange_need": 15
   }
 ]

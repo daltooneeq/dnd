@@ -1,17 +1,15 @@
 use dnd::items;
 use std::io;
 use std::fs;
-
-use serde_json::{to_string, from_str};
 fn main() {
-    SetArmor();
+    set_armor();
 }
 
-fn SetArmor() {
+fn set_armor() {
     loop{
         let json = fs::read_to_string("data/armor.json").unwrap();
         let mut armors: Vec<items::Armor> = serde_json::from_str(&json).unwrap();
-        let new_armor = match AddArmor() {
+        let new_armor = match add_armor() {
             Some(v) => v,
             None => break,
         };
@@ -21,7 +19,7 @@ fn SetArmor() {
     }
     
 }
-fn AddArmor() -> Option<items::Armor>{
+fn add_armor() -> Option<items::Armor>{
     let mut input = String::new();
 
     io::stdin().read_line(&mut input).expect("Error");
@@ -44,9 +42,9 @@ fn AddArmor() -> Option<items::Armor>{
             cost: input[1].parse().unwrap(),
             weight: input[2].parse().unwrap(),
         },
-        defaultAC: input[3].parse().unwrap(),
-        plusDEX: input[4].parse().unwrap(),
-        strangeNeed: strangeneed,
+        default_AC: input[3].parse().unwrap(),
+        plus_DEX: input[4].parse().unwrap(),
+        strange_need: strangeneed,
     })
 
 
