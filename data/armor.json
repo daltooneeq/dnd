@@ -1,0 +1,12 @@
+[
+  {
+    "item": {
+      "name": "light_quilted_armor",
+      "cost": 5,
+      "weight": 8
+    },
+    "defaultAC": 11,
+    "plusDEX": true,
+    "strangeNeed": null
+  }
+]

@@ -1,5 +1,4 @@
 use std::collections::HashSet;
-
 pub struct Abilities{
     pub str: u8,
     pub dex: u8,
@@ -66,7 +65,7 @@ pub struct Character {
 }
 
 impl Character {
-    fn Modifiers(&self) -> Modifiers{
+    pub fn Modifiers(&self) -> Modifiers{
         let abilities = &self.abilities;
         Modifiers {
             str: (abilities.str-10)/2,
@@ -77,8 +76,8 @@ impl Character {
             cha: (abilities.cha-10)/2,
         }
     }
-    fn ProficiencyBonus(&self) -> u8 {
+    pub fn ProficiencyBonus(&self) -> u8 {
         &self.lvl/4+1
-    }
-
+    }    
 }
+
