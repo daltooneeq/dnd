@@ -31,3 +31,22 @@ pub fn get_armor() -> Vec<Armor>{
     let json = read_to_string(ARMOR_JSON).unwrap();
     serde_json::from_str(&json).unwrap()
 }
+
+pub struct Arm {
+    pub item: Item,
+    pub damage: String,
+    
+    pub ammunition: bool,
+    pub two_handed: bool,
+    pub reach: bool,
+    pub light: bool,
+    pub throwing: bool,
+    pub special: bool,
+    pub reload: bool,
+    pub heavy: bool,
+    pub universal: bool,
+    pub fencing: bool,
+    
+    pub distance_norm: u16,
+    pub distance_max: u16,
+}
