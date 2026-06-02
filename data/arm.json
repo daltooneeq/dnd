@@ -94,10 +94,10 @@
     "special": false,
     "recharge": false,
     "heavy": false,
-    "universal": false,
-    "fencing": true,
-    "distance_norm": 0,
-    "distance_max": 20
+    "universal": true,
+    "fencing": false,
+    "distance_norm": 20,
+    "distance_max": 60
   },
   {
     "item": {
@@ -212,12 +212,12 @@
     "light": false,
     "throwing": false,
     "special": false,
-    "recharge": false,
-    "heavy": true,
+    "recharge": true,
+    "heavy": false,
     "universal": false,
     "fencing": false,
-    "distance_norm": 0,
-    "distance_max": 80
+    "distance_norm": 80,
+    "distance_max": 320
   },
   {
     "item": {
@@ -595,8 +595,8 @@
     "recharge": false,
     "heavy": false,
     "universal": false,
-    "fencing": false,
-    "distance_norm": 1,
+    "fencing": true,
+    "distance_norm": 5,
     "distance_max": 5
   },
   {
