@@ -4,6 +4,18 @@ use serde::{Serialize, Deserialize};
 
 use crate::character::Character;
 
+const ARMOR_JSON: &str = include_str!("../data/armor.json");
+const ARM_JSON: &str = include_str!("../data/arm.json");
+
+pub fn get_armor() -> Vec<Armor>{
+    let json = read_to_string(ARMOR_JSON).unwrap();
+    serde_json::from_str(&json).unwrap()
+}
+pub fn get_arm() -> Vec<Arm>{
+    let json = read_to_string(ARM_JSON).unwrap();
+    serde_json::from_str(&json).unwrap()
+}
+
 #[derive(Serialize, Deserialize)]
 pub struct Item {
     pub name: String,
@@ -25,27 +37,21 @@ impl Armor {
     }
 }
 
-const ARMOR_JSON: &str = include_str!("../data/armor.json");
-
-pub fn get_armor() -> Vec<Armor>{
-    let json = read_to_string(ARMOR_JSON).unwrap();
-    serde_json::from_str(&json).unwrap()
-}
-
+#[derive(Serialize, Deserialize)]
 pub struct Arm {
     pub item: Item,
-    pub damage: String,
+    pub damage: u8,
     
-    pub ammunition: bool,
-    pub two_handed: bool,
-    pub reach: bool,
-    pub light: bool,
-    pub throwing: bool,
-    pub special: bool,
-    pub reload: bool,
-    pub heavy: bool,
-    pub universal: bool,
-    pub fencing: bool,
+    pub ammunition: bool, //1
+    pub two_handed: bool, //2
+    pub reaching: bool, //3 
+    pub light: bool, //4
+    pub throwing: bool, //5
+    pub special: bool, //6
+    pub recharge: bool, //7
+    pub heavy: bool, //8 
+    pub universal: bool, //9
+    pub fencing: bool, //10
     
     pub distance_norm: u16,
     pub distance_max: u16,

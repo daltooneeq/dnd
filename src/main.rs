@@ -1,24 +1,30 @@
 use dnd::items;
+use serde::Serialize;
+use serde::de::DeserializeOwned;
 use std::io;
 use std::fs;
 fn main() {
-    set_armor();
+    set_json("data/arm.json", add_arm);
 }
 
-fn set_armor() {
-    loop{
-        let json = fs::read_to_string("data/armor.json").unwrap();
-        let mut armors: Vec<items::Armor> = serde_json::from_str(&json).unwrap();
-        let new_armor = match add_armor() {
+fn set_json<F, T>(path: &str, f: F)
+where 
+    T: Serialize + DeserializeOwned,    
+    F: Fn() -> Option<T>
+{
+    loop {
+        let file = fs::read_to_string(path).unwrap();
+        let mut json: Vec<T> = serde_json::from_str(&file).unwrap();
+        let new_json = match f() {
             Some(v) => v,
             None => break,
         };
-        armors.push(new_armor);
-        let new_json = serde_json::to_string_pretty(&armors).unwrap();
-        fs::write("data/armor.json", new_json).unwrap();
+        json.push(new_json);
+        let result = serde_json::to_string_pretty(&json).unwrap();
+        fs::write(path, result).unwrap()
     }
-    
 }
+#[allow(dead_code)]
 fn add_armor() -> Option<items::Armor>{
     let mut input = String::new();
 
@@ -48,4 +54,48 @@ fn add_armor() -> Option<items::Armor>{
     })
 
 
+}
+
+fn parse_bool(s: &str) -> bool {
+    match s {
+        "0" => false,
+        "1" => true,
+        _ => panic!(),
+    }
+}
+
+fn add_arm() -> Option<items::Arm> {
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input).expect("Error");
+
+    if input == "break\n".to_string(){
+        return None;
+    }
+
+    let input: Vec<&str> = input.trim().split_whitespace().collect();
+
+    Some(items::Arm {
+        item: items::Item {
+            name: input[0].to_string(),
+            cost: input[1].parse().unwrap(),
+            weight: input[2].parse().unwrap(),
+        },
+        damage: input[3].parse().unwrap(),
+
+        ammunition: parse_bool(input[4]),
+        two_handed: parse_bool(input[5]),
+        reaching: parse_bool(input[6]),
+        light: parse_bool(input[7]),
+        throwing: parse_bool(input[8]),
+        special: parse_bool(input[9]),
+        recharge: parse_bool(input[10]),
+        heavy: parse_bool(input[11]),
+        universal: parse_bool(input[12]),
+        fencing: parse_bool(input[13]),
+
+        distance_norm: input[14].parse().unwrap(),
+        distance_max: input[15].parse().unwrap(),
+
+    })
 }
