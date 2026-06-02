@@ -218,5 +218,525 @@
     "fencing": false,
     "distance_norm": 0,
     "distance_max": 80
+  },
+  {
+    "item": {
+      "name": "dart",
+      "cost": 5,
+      "weight": 1
+    },
+    "damage": 4,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": true,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": true,
+    "distance_norm": 20,
+    "distance_max": 60
+  },
+  {
+    "item": {
+      "name": "short_bow",
+      "cost": 2500,
+      "weight": 2
+    },
+    "damage": 4,
+    "ammunition": true,
+    "two_handed": true,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 80,
+    "distance_max": 320
+  },
+  {
+    "item": {
+      "name": "sling",
+      "cost": 10,
+      "weight": 1
+    },
+    "damage": 4,
+    "ammunition": true,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 30,
+    "distance_max": 120
+  },
+  {
+    "item": {
+      "name": "halberd",
+      "cost": 2000,
+      "weight": 6
+    },
+    "damage": 10,
+    "ammunition": false,
+    "two_handed": true,
+    "reaching": true,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "combat_pickaxe",
+      "cost": 500,
+      "weight": 2
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "battle_hammer",
+      "cost": 1500,
+      "weight": 2
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": true,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "battle_axe",
+      "cost": 1000,
+      "weight": 4
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": true,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "glaive",
+      "cost": 2000,
+      "weight": 6
+    },
+    "damage": 10,
+    "ammunition": false,
+    "two_handed": true,
+    "reaching": true,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "two_handed_sword",
+      "cost": 5000,
+      "weight": 6
+    },
+    "damage": 12,
+    "ammunition": false,
+    "two_handed": true,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "long_spear",
+      "cost": 1000,
+      "weight": 6
+    },
+    "damage": 12,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": true,
+    "light": false,
+    "throwing": false,
+    "special": true,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "long_sword",
+      "cost": 1500,
+      "weight": 3
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": true,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "whip",
+      "cost": 2000,
+      "weight": 3
+    },
+    "damage": 4,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": true,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": true,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "short_sword",
+      "cost": 1000,
+      "weight": 2
+    },
+    "damage": 6,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": true,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": true,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "hammer",
+      "cost": 1000,
+      "weight": 10
+    },
+    "damage": 12,
+    "ammunition": false,
+    "two_handed": true,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "morgenstern",
+      "cost": 1500,
+      "weight": 4
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "peak",
+      "cost": 500,
+      "weight": 18
+    },
+    "damage": 10,
+    "ammunition": false,
+    "two_handed": true,
+    "reaching": true,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "rapier",
+      "cost": 2500,
+      "weight": 2
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": true,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "ax",
+      "cost": 3000,
+      "weight": 7
+    },
+    "damage": 12,
+    "ammunition": false,
+    "two_handed": true,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "scimitar",
+      "cost": 2500,
+      "weight": 3
+    },
+    "damage": 6,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": true,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 1,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "tredent",
+      "cost": 500,
+      "weight": 4
+    },
+    "damage": 6,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": true,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": true,
+    "fencing": false,
+    "distance_norm": 20,
+    "distance_max": 60
+  },
+  {
+    "item": {
+      "name": "flail",
+      "cost": 1000,
+      "weight": 2
+    },
+    "damage": 8,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 5
+  },
+  {
+    "item": {
+      "name": "manual_crossbow",
+      "cost": 7500,
+      "weight": 3
+    },
+    "damage": 6,
+    "ammunition": true,
+    "two_handed": false,
+    "reaching": false,
+    "light": true,
+    "throwing": false,
+    "special": false,
+    "recharge": true,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 30,
+    "distance_max": 120
+  },
+  {
+    "item": {
+      "name": "heavy_crossbow",
+      "cost": 5000,
+      "weight": 18
+    },
+    "damage": 10,
+    "ammunition": true,
+    "two_handed": true,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": true,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 100,
+    "distance_max": 400
+  },
+  {
+    "item": {
+      "name": "long_bow",
+      "cost": 5000,
+      "weight": 2
+    },
+    "damage": 8,
+    "ammunition": true,
+    "two_handed": true,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": false,
+    "heavy": true,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 150,
+    "distance_max": 600
+  },
+  {
+    "item": {
+      "name": "blowpipe",
+      "cost": 1000,
+      "weight": 1
+    },
+    "damage": 1,
+    "ammunition": true,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": false,
+    "special": false,
+    "recharge": true,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 25,
+    "distance_max": 100
+  },
+  {
+    "item": {
+      "name": "net",
+      "cost": 100,
+      "weight": 3
+    },
+    "damage": 0,
+    "ammunition": false,
+    "two_handed": false,
+    "reaching": false,
+    "light": false,
+    "throwing": true,
+    "special": true,
+    "recharge": false,
+    "heavy": false,
+    "universal": false,
+    "fencing": false,
+    "distance_norm": 5,
+    "distance_max": 15
   }
 ]
