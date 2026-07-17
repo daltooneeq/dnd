@@ -3,10 +3,19 @@ use serde::Serialize;
 use serde::de::DeserializeOwned;
 use std::io;
 use std::fs;
+
+fn parse_bool(s: &str) -> bool {
+    match s {
+        "0" => false,
+        "1" => true,
+        _ => panic!(),
+    }
+}
 fn main() {
-    set_json("data/arm.json", add_arm);
+    
 }
 
+#[allow(dead_code)]
 fn set_json<F, T>(path: &str, f: F)
 where 
     T: Serialize + DeserializeOwned,    
@@ -49,22 +58,16 @@ fn add_armor() -> Option<items::Armor>{
             weight: input[2].parse().unwrap(),
         },
         default_AC: input[3].parse().unwrap(),
-        plus_DEX: input[4].parse().unwrap(),
+        plus_dex: input[4].parse().unwrap(),
         strange_need: strangeneed,
     })
 
 
 }
 
-fn parse_bool(s: &str) -> bool {
-    match s {
-        "0" => false,
-        "1" => true,
-        _ => panic!(),
-    }
-}
 
-fn add_arm() -> Option<items::Arm> {
+#[allow(dead_code)]
+fn add_weapon() -> Option<items::Weapon> {
     let mut input = String::new();
 
     io::stdin().read_line(&mut input).expect("Error");
@@ -75,7 +78,7 @@ fn add_arm() -> Option<items::Arm> {
 
     let input: Vec<&str> = input.trim().split_whitespace().collect();
 
-    Some(items::Arm {
+    Some(items::Weapon {
         item: items::Item {
             name: input[0].to_string(),
             cost: input[1].parse().unwrap(),

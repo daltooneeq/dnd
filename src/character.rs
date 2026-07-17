@@ -1,4 +1,28 @@
 use std::collections::HashSet;
+
+//SPELL_INCREASE - приращение ячеек заклинаний с каждым уровнем начиная с 2
+const SPELL_INCREASE: [[u8; 10]; 19] = [
+    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 2, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+];
+
 pub struct Abilities{
     pub str: u8,
     pub dex: u8,
@@ -50,14 +74,13 @@ pub struct DeathSaves {
 pub struct Character {
     pub name: String,
     pub race: String,
-    pub class: String,
+    pub class: Class,
     pub xp: u32,
     pub lvl: u8,
 
     pub abilities: Abilities,
 
-    pub hp_max: u8,
-    pub hp_now: u8,
+    pub hd_now: u8,
 
     pub death_saves: DeathSaves,
 
@@ -76,8 +99,34 @@ impl Character {
             cha: (abilities.cha-10)/2,
         }
     }
-    pub fn proficiency_bonus(&self) -> u8 {
-        &self.lvl/4+1
-    }    
+    pub fn master_bonus(&self) -> u8 {
+        2 + (&self.lvl - 1) / 4
+    }   
+    pub fn max_hits(&self) -> u8 {
+        (&self.class.hits_dice) * &self.lvl + &self.modifiers().con
+    }
+    pub fn max_spells(&self) -> [u8; 10] {
+        let mut spells = self.class.spell_1.clone();
+        for i in 2..=20 {
+            if self.lvl < i as u8 {
+                break;
+            }
+            for j in 0..9 {
+                spells[j] += SPELL_INCREASE[i][j];   
+            }
+        }
+        spells
+    }
 }
 
+pub struct Class {
+    pub name: String,
+
+    pub hits_dice: u8,
+
+    pub spell_1: [u8; 10],
+
+    weapon_own: Vec<u16>,
+    armor_own: Vec<u16>
+
+}

@@ -5,16 +5,10 @@ use serde::{Serialize, Deserialize};
 use crate::character::Character;
 
 const ARMOR_JSON: &str = include_str!("../data/armor.json");
-const ARM_JSON: &str = include_str!("../data/arm.json");
+const WEAPON_JSON: &str = include_str!("../data/weapon.json");
 
-pub fn get_armor() -> Vec<Armor>{
-    let json = read_to_string(ARMOR_JSON).unwrap();
-    serde_json::from_str(&json).unwrap()
-}
-pub fn get_arm() -> Vec<Arm>{
-    let json = read_to_string(ARM_JSON).unwrap();
-    serde_json::from_str(&json).unwrap()
-}
+
+
 
 #[derive(Serialize, Deserialize)]
 pub struct Item {
@@ -28,17 +22,21 @@ pub struct Item {
 pub struct Armor {
     pub item: Item,
     pub default_AC: u8,
-    pub plus_DEX: bool,
+    pub plus_dex: bool,
     pub strange_need: Option<u8>,
 }
 impl Armor {
+    pub fn get_armor() -> Vec<Armor>{
+        let json = read_to_string(ARMOR_JSON).unwrap();
+        serde_json::from_str(&json).unwrap()
+    }
     fn get_armor_class(&self, owner: &Character) -> u8{
-        owner.modifiers().dex * (self.plus_DEX as u8) + self.default_AC
+        owner.modifiers().dex * (self.plus_dex as u8) + self.default_AC
     }
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct Arm {
+pub struct Weapon {
     pub item: Item,
     pub damage: u8,
     
@@ -55,4 +53,10 @@ pub struct Arm {
     
     pub distance_norm: u16,
     pub distance_max: u16,
+}
+impl Weapon {
+    pub fn get_weapon() -> Vec<Weapon>{
+        let json = read_to_string(WEAPON_JSON).unwrap();
+        serde_json::from_str(&json).unwrap()
+    }
 }
