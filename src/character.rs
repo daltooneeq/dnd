@@ -134,8 +134,7 @@ pub struct Class {
 }
 impl Class {
     pub fn get_default() -> HashMap<String, Class>{
-        let json = read_to_string(crate::CLASS_JSON).unwrap();
-        let json: Vec<Class> = serde_json::from_str(&json).unwrap();
+        let json: Vec<Class> = serde_json::from_str(crate::CLASS_JSON).unwrap();
         
         let mut default: HashMap<String, Class> = HashMap::new();
         for el in json {

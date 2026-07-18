@@ -21,8 +21,7 @@ pub struct Armor {
 }
 impl Armor {
     pub fn get_default() -> HashMap<String, Armor>{
-        let json = read_to_string(crate::ARMOR_JSON).unwrap();
-        let json: Vec<Armor> = serde_json::from_str(&json).unwrap();
+        let json: Vec<Armor> = serde_json::from_str(crate::ARMOR_JSON).unwrap();
 
         let mut default: HashMap<String, Armor> = HashMap::new();
         for el in json {
@@ -56,9 +55,8 @@ pub struct Weapon {
     pub distance_max: u16,
 }
 impl Weapon {
-    pub fn get_default() -> HashMap<String, Weapon>{
-        let json = read_to_string(crate::WEAPON_JSON).unwrap();
-        let json: Vec<Weapon> = serde_json::from_str(&json).unwrap();
+    pub fn get_default() -> HashMap<String, Weapon>{ 
+        let json: Vec<Weapon> = serde_json::from_str(crate::WEAPON_JSON).unwrap();
 
         let mut default: HashMap<String, Weapon> = HashMap::new();
         for el in json {

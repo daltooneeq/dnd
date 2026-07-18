@@ -12,7 +12,7 @@ fn parse_bool(s: &str) -> bool {
     }
 }
 fn main() {
-    
+   set_json("data/class.json", || add_class(items::Weapon::get_default(), items::Armor::get_default())); 
 }
 
 #[allow(dead_code)]
