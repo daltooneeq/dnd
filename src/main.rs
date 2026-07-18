@@ -121,7 +121,11 @@ fn add_class(weapon: HashMap<String, items::Weapon>, armor: HashMap<String, item
         armor_own: Vec::new(),
     };
 
-    for el in &input[2..] {
+    for i in 0..10 {
+        class.spell_1[i] = input[2+i].parse().unwrap();
+    }
+
+    for el in &input[12..] {
         if weapon.contains_key(*el) {
             class.weapon_own.push(el.to_string());
         } else if armor.contains_key(*el) {
