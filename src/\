@@ -3,7 +3,6 @@ use serde::Serialize;
 use serde::de::DeserializeOwned;
 use std::{io, fs};
 use std::collections::HashMap;
-
 fn parse_bool(s: &str) -> bool {
     match s {
         "0" => false,
@@ -112,23 +111,5 @@ fn add_class(weapon: HashMap<String, items::Weapon>, armor: HashMap<String, item
     }
 
     let input: Vec<&str> = input.trim().split_whitespace().collect();
-
-    let mut class = character::Class {
-        name: input[0].to_string(),
-        hits_dice: input[1].parse().unwrap(),
-        spell_1: [0; 10],
-        weapon_own: Vec::new(),
-        armor_own: Vec::new(),
-    };
-
-    for el in &input[2..] {
-        if weapon.contains_key(*el) {
-            class.weapon_own.push(el.to_string());
-        } else if armor.contains_key(*el) {
-            class.armor_own.push(el.to_string());
-        } else {println!("Weapon or armor {} not found", *el);}
-    }
-
-    Some(class)
     
 } 
