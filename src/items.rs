@@ -1,21 +1,15 @@
 use std::fs::read_to_string;
-
 use serde::{Serialize, Deserialize};
 
+use std::collections::HashMap;
+
 use crate::character::Character;
-
-const ARMOR_JSON: &str = include_str!("../data/armor.json");
-const WEAPON_JSON: &str = include_str!("../data/weapon.json");
-
-
-
 
 #[derive(Serialize, Deserialize)]
 pub struct Item {
     pub name: String,
     pub cost: u32,
     pub weight: u8,
-
 }
 
 #[derive(Serialize, Deserialize)]
@@ -26,9 +20,16 @@ pub struct Armor {
     pub strange_need: Option<u8>,
 }
 impl Armor {
-    pub fn get_armor() -> Vec<Armor>{
-        let json = read_to_string(ARMOR_JSON).unwrap();
-        serde_json::from_str(&json).unwrap()
+    pub fn get_default() -> HashMap<String, Armor>{
+        let json = read_to_string(crate::ARMOR_JSON).unwrap();
+        let json: Vec<Armor> = serde_json::from_str(&json).unwrap();
+
+        let mut default: HashMap<String, Armor> = HashMap::new();
+        for el in json {
+            default.insert((el.item.name).clone(), el);
+        }
+
+        default
     }
     fn get_armor_class(&self, owner: &Character) -> u8{
         owner.modifiers().dex * (self.plus_dex as u8) + self.default_AC
@@ -55,8 +56,15 @@ pub struct Weapon {
     pub distance_max: u16,
 }
 impl Weapon {
-    pub fn get_weapon() -> Vec<Weapon>{
-        let json = read_to_string(WEAPON_JSON).unwrap();
-        serde_json::from_str(&json).unwrap()
+    pub fn get_default() -> HashMap<String, Weapon>{
+        let json = read_to_string(crate::WEAPON_JSON).unwrap();
+        let json: Vec<Weapon> = serde_json::from_str(&json).unwrap();
+
+        let mut default: HashMap<String, Weapon> = HashMap::new();
+        for el in json {
+            default.insert((el.item.name).clone(), el);
+        }
+
+        default
     }
 }

@@ -1,4 +1,6 @@
-use std::collections::HashSet;
+use std::collections::{HashSet, HashMap};
+use serde::{Serialize, Deserialize};
+use std::fs::read_to_string;
 
 //SPELL_INCREASE - приращение ячеек заклинаний с каждым уровнем начиная с 2
 const SPELL_INCREASE: [[u8; 10]; 19] = [
@@ -119,6 +121,7 @@ impl Character {
     }
 }
 
+#[derive(Serialize, Deserialize)]
 pub struct Class {
     pub name: String,
 
@@ -126,7 +129,19 @@ pub struct Class {
 
     pub spell_1: [u8; 10],
 
-    weapon_own: Vec<u16>,
-    armor_own: Vec<u16>
+    pub weapon_own: Vec<String>,
+    pub armor_own: Vec<String>,
+}
+impl Class {
+    pub fn get_default() -> HashMap<String, Class>{
+        let json = read_to_string(crate::CLASS_JSON).unwrap();
+        let json: Vec<Class> = serde_json::from_str(&json).unwrap();
+        
+        let mut default: HashMap<String, Class> = HashMap::new();
+        for el in json {
+            default.insert((el.name).clone(), el);
+        }
 
+        default
+    } 
 }
