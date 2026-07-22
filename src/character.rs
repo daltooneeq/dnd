@@ -107,17 +107,23 @@ impl Character {
     pub fn max_hits(&self) -> u8 {
         (&self.class.hits_dice) * &self.lvl + &self.modifiers().con
     }
-    pub fn max_spells(&self) -> [u8; 10] {
-        let mut spells = self.class.spell_1.clone();
-        for i in 2..=20 {
-            if self.lvl < i as u8 {
-                break;
-            }
-            for j in 0..9 {
-                spells[j] += SPELL_INCREASE[i][j];   
+    pub fn max_spells(&self) -> Option<[u8; 10]> {
+        match self.class.spell_1.clone() {
+            None => None,
+            Some(v) => {
+                let mut spells = v;
+        
+                for i in 2..=20 {
+                    if self.lvl < i as u8 {
+                        break;
+                    }
+                    for j in 0..9 {
+                        spells[j] += SPELL_INCREASE[i][j];   
+                    }
+                }
+                Some(spells)
             }
         }
-        spells
     }
 }
 
@@ -127,7 +133,7 @@ pub struct Class {
 
     pub hits_dice: u8,
 
-    pub spell_1: [u8; 10],
+    pub spell_1: Option<[u8; 10]>,
 
     pub weapon_own: Vec<String>,
     pub armor_own: Vec<String>,

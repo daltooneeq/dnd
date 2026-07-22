@@ -12,7 +12,7 @@ fn parse_bool(s: &str) -> bool {
     }
 }
 fn main() {
-   set_json("data/class.json", || add_class(items::Weapon::get_default(), items::Armor::get_default())); 
+   //set_json("data/class.json", || add_class(items::Weapon::get_default(), items::Armor::get_default())); 
 }
 
 #[allow(dead_code)]
@@ -112,20 +112,30 @@ fn add_class(weapon: HashMap<String, items::Weapon>, armor: HashMap<String, item
     }
 
     let input: Vec<&str> = input.trim().split_whitespace().collect();
-
+    
+    let mut i: usize = 0;
     let mut class = character::Class {
-        name: input[0].to_string(),
-        hits_dice: input[1].parse().unwrap(),
-        spell_1: [0; 10],
+        name: input[i].to_string(),
+        hits_dice: input[i+1].parse().unwrap(),
+        spell_1: Some([0; 10]),
         weapon_own: Vec::new(),
         armor_own: Vec::new(),
     };
-
-    for i in 0..10 {
-        class.spell_1[i] = input[2+i].parse().unwrap();
+    i = 2;
+    
+    if input[2] == "None" {
+        class.spell_1 = None;
+        i = 3;
+    } else {
+        let spells = class.spell_1.as_mut().unwrap();
+        for spell in spells.iter_mut() {
+            *spell = input[i].parse().unwrap();
+            i += 1;
+        }
     }
 
-    for el in &input[12..] {
+
+    for el in &input[i..] {
         if weapon.contains_key(*el) {
             class.weapon_own.push(el.to_string());
         } else if armor.contains_key(*el) {
